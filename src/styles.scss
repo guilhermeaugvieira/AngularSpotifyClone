@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'reset.scss';
+@import 'fontes.scss';
+@import 'variaveis.scss';
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+  background-color: $cor-fundo;
+}
+
