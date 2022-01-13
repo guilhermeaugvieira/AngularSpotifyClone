@@ -5,7 +5,7 @@ export const environment = {
 export const SpotifyConfiguration = {
   clientId: '0d058561b78a481f83751fefc800f6c7',
   authEndpoint: 'https://accounts.spotify.com/authorize',
-  redirectUrl: 'http://localhost:4200/login/',
+  redirectUri: 'http://localhost:4200/login/',
   scopes: [
     'user-read-currently-playing', // música tocando agora
     'user-read-recently-played', // ler músicas tocadas recentemente

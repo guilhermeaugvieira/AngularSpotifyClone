@@ -1,10 +1,11 @@
-@import 'reset.scss';
-@import 'fontes.scss';
-@import 'variaveis.scss';
+@import 'reset';
+@import 'fontes';
+@import 'variaveis';
+@import 'utilidades';
 
 * {
   font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
-  background-color: $cor-fundo;
+  background-color: #222;
 }
 
