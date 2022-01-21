@@ -3,6 +3,7 @@ import { SpotifyConfiguration } from 'src/environments/environment';
 import Spotify from 'spotify-web-api-js';
 import { IUsuario } from '../interfaces/IUsuario';
 import { SpotifyUserParaUsuario } from '../common/spotifyHelper';
+import { TokenService } from './token.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class SpotifyService {
   spotifyApi: Spotify.SpotifyWebApiJs = null;
   usuario: IUsuario;
 
-  constructor() { 
+  constructor(private _tokenService : TokenService) { 
     this.spotifyApi = new Spotify();
   }
 
@@ -26,24 +27,15 @@ export class SpotifyService {
     return authEndpoint + clientId + redirectUri + scopes + responseType;
   }
 
-  obterTokenUrlCallback(){
-    if (!window.location.hash) return '';
-
-    const params = window.location.hash.substring(1).split('&');
-
-    return params[0].split('=')[1];
-  }
-
   definirAccessToken(token: string){
     this.spotifyApi.setAccessToken(token);
-    localStorage.setItem('token', token);
   }
 
   async inicializarUsuario() {
     if(!!this.usuario)
       return true;
 
-    const token = localStorage.getItem('token');
+    const token = this._tokenService.obterAccessToken();
 
     if(!token) return false;
     
