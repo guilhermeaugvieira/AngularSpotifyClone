@@ -22,15 +22,16 @@ export class TokenService {
   }
 
   inicializarToken(): void {
-    const token = localStorage.getItem('token');
-    const validadeToken = localStorage.getItem('validadeToken');
+    const localStorageToken = localStorage.getItem('token');
 
-    if(!token || !validadeToken) 
+    if(!localStorageToken) 
       return null;
+
+    const token = JSON.parse(localStorageToken);
     
     this.tokenUsuario = {
-      accessToken: token,
-      expiracao: addHours(new Date(validadeToken), 1).toUTCString(),
+      accessToken: token.accessToken,
+      expiracao: addHours(new Date(token.dataCriacao), 1).toUTCString(),
     };
   };
 
@@ -39,19 +40,19 @@ export class TokenService {
       return null;
     
     if(!this.validarExpiracaoToken()) {
-      this.invalidarDadosToken();
+      this.invalidarTokenUsuario();
       return null;
     }
 
     return this.tokenUsuario.accessToken;
   }
 
-  invalidarDadosToken(){
+  invalidarTokenUsuario(){
     this.tokenUsuario = null;
     localStorage.clear();
   }
 
-  validarExpiracaoToken(): boolean {
+  validarExpiracaoToken() {
     if(new Date(this.tokenUsuario.expiracao) < new Date())
       return false;
     
@@ -59,8 +60,10 @@ export class TokenService {
   }
 
   setarTokenUsuario(token: string){
-    localStorage.setItem('token', token);
-    localStorage.setItem('validadeToken', new Date().toUTCString());
+    localStorage.setItem('token', JSON.stringify({
+      accessToken: token,
+      dataCriacao: new Date().toUTCString(),
+    }));
 
     this.tokenUsuario = {
       accessToken: token,

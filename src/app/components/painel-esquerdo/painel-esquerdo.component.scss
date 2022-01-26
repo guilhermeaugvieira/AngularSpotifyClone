@@ -1,6 +1,8 @@
 @import 'variaveis';
 
 $spotify-logo-height: 120px;
+$height-menu-opcoes: 150px;
+$espaco-entre-menus: 10px;
 
 :host{
   display: flex;
@@ -8,7 +10,7 @@ $spotify-logo-height: 120px;
   min-height: 100vh;
   overflow-y: hidden;
   flex-direction: column;
-  background-color: $branco;
+  background-color: $cor-fundo-secundaria;
   box-shadow: 1px 0px 15px #00000012;
 
   .menus{
@@ -23,5 +25,42 @@ $spotify-logo-height: 120px;
         width: 70%;
       }
     }
+
+    .menu-container{
+      width: 100%; 
+      
+      &.opcoes{
+        min-height: $height-menu-opcoes;
+
+        * {
+          margin-bottom: $espaco-entre-menus;
+        }
+      }
+
+      .playlist-titulo{
+        margin: 10px 0px;
+        align-self: flex-start;
+        font-weight: 700;
+        font-size: .7rem;
+        color: $preto-transparente-30;
+        text-transform: uppercase;
+      }
+
+      .playlist-scroll{
+        width: 100%;
+        max-height: 50vh;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar{
+          display: none;
+        }
+
+        * {
+          margin-bottom: $espaco-entre-menus;
+        }
+      }
+    }
   }
+
+
 }

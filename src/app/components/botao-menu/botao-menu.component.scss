@@ -1,0 +1,35 @@
+@import 'variaveis';
+
+:host{
+  display: block;
+  width: 100%;
+  
+  button{
+    width: 100%;
+    padding: 10px 0px 10px 20px;
+    border: 0;
+    border-radius: 5px;
+    text-align: left;
+    font-weight: 600;
+    font-size: .8rem;
+
+    color: $cor-primaria;
+    background-color: transparent;
+    transition: all .3s;
+
+    span{
+      display: inline-block;
+      vertical-align: middle;
+      width: 150px;
+      white-space: nowrap;
+      margin-left: 15px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &.selecionado{
+      background-color: $cor-primaria;
+      color: $branco;
+    }
+  }
+}

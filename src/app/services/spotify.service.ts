@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { SpotifyConfiguration } from 'src/environments/environment';
 import Spotify from 'spotify-web-api-js';
 import { IUsuario } from '../interfaces/IUsuario';
-import { SpotifyUserParaUsuario } from '../common/spotifyHelper';
+import { SpotifyPlaylistParaPlaylist, SpotifyUserParaUsuario } from '../common/spotifyHelper';
 import { TokenService } from './token.service';
+import { IPlaylist } from '../interfaces/IPlaylist';
 
 @Injectable({
   providedIn: 'root'
@@ -52,5 +53,14 @@ export class SpotifyService {
   async obterUsuarioSpotify() {
     const userInfo = await this.spotifyApi.getMe();
     this.usuario = SpotifyUserParaUsuario(userInfo);
+  }
+
+  async buscarPlaylistUsuario(offset = 0, limit = 50) : Promise<IPlaylist[]> {
+    const playlists = await this.spotifyApi.getUserPlaylists(this.usuario.id, {
+      offset,
+      limit,
+    });
+
+    return playlists.items.map(SpotifyPlaylistParaPlaylist);
   }
 }
