@@ -22,6 +22,10 @@
     justify-content: flex-end;
   }
 
+  &.justify-between{
+    justify-content: space-between;
+  }
+
   &.align-start{
     align-items: flex-start;
   }
@@ -33,4 +37,36 @@
   &.align-end{
     align-items: flex-end;
   }
+}
+
+.titulo{
+  color: $cor-primaria;
+  display: block;
+  font-weight: 700;
+
+  &-bg{
+    @extend .titulo;
+    font-size: 2.2rem;
+  }
+
+  &-md {
+    @extend .titulo;
+    font-size: 1.4rem;
+  }
+}
+
+.mt {
+  @for $i from 1 to 10 {
+    &-#{ $i } {
+      margin-top: #{ $i }vh;
+    }
+  }
+}
+
+.p-20{
+  padding: 20px;
+}
+
+.d-block{
+  display: block;
 }

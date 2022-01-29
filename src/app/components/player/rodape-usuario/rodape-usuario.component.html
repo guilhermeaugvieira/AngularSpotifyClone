@@ -1,0 +1,16 @@
+<div class="flex justify-between align-center">
+  
+  <img [src]="usuario.imagemUrl" alt="Imagem Usuario">
+  
+  <span>
+    {{usuario.nome}}
+  </span>
+
+  <fa-icon 
+    [icon]="iconeSair"
+    class="icone"
+    (click)="logout()"
+  >
+  </fa-icon>
+
+</div>
