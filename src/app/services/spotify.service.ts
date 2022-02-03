@@ -81,4 +81,10 @@ export class SpotifyService {
     await this.spotifyApi.queue(musicaId);
     await this.spotifyApi.skipToNext();
   }
+
+  async obterMusicaEmExecucao() : Promise<IMusica>{
+    const musica = await this.spotifyApi.getMyCurrentPlayingTrack();
+
+    return SpotifyTrackParaMusica(musica.item);
+  }
 }

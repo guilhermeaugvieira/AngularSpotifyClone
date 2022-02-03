@@ -6,6 +6,19 @@
   height: 100%;
   background-color: $cor-fundo;
 
+  ::-webkit-scrollbar {
+    width: 10px;
+    
+    &-thumb{
+      background-color: rgba($cor-primaria, 0.2);
+      border-radius: 10px;
+    }
+
+    &-track {
+      background: transparent;
+    }
+  }
+
   .minhas-musicas {
     padding: 0px 50px 20px 50px;
     width: 100%;
@@ -16,7 +29,7 @@
       width: 100%;
       text-align: left;
       table-layout: fixed;
-      border-collapse: separate;
+      border-collapse: collapse;
 
       .play {
         color: $cor-primaria;
@@ -47,6 +60,12 @@
           td {
             color: $cor-primaria;
           }
+        }
+
+        &.executando {
+          background-color: $branco;
+          padding: 10px;
+          box-shadow: 0px 0px 15px $preto-transparente-30;
         }
 
         td {

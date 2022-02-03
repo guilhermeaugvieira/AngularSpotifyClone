@@ -25,8 +25,8 @@ export class PainelEsquerdoComponent implements OnInit {
     private _router: Router,
   ) { }
 
-  ngOnInit(): void {
-    this.buscarPlaylists();
+  async ngOnInit(): Promise<void> {
+    await this.buscarPlaylists();
   }
 
   botaoClick(botao: string){
