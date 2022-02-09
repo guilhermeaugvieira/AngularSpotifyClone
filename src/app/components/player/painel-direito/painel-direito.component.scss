@@ -1,5 +1,13 @@
+@import 'variaveis';
+
 :host{
   display: flex;
   flex-direction: column;
   max-height: 100vh;
+  min-height: 100vh;
+  background-color: $cor-fundo;
+
+  .player{
+    flex-grow: 1;
+  }
 }

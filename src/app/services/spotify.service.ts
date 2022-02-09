@@ -87,4 +87,13 @@ export class SpotifyService {
 
     return SpotifyTrackParaMusica(musica.item);
   }
+
+  async voltarMusica(){
+    await this.spotifyApi.skipToPrevious();
+  }
+
+  async pularMusica() {
+    await this.spotifyApi.skipToNext();
+  }
 }
+

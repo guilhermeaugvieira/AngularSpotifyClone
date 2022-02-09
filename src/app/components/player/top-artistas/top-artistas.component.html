@@ -1,0 +1,12 @@
+<span class="titulo-md">
+  Top 5 Artistas
+</span>
+
+<app-opcao-artista
+  *ngFor="let artista of artistas"
+  [imagemSrc]="artista.imagemUrl"
+  class="mt-1 d-block"
+>
+  {{artista.nome}}
+</app-opcao-artista>
+
