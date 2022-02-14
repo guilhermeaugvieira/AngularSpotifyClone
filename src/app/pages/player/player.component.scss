@@ -1,3 +1,5 @@
+@import 'variaveis';
+
 :host{
   display: flex;
 
@@ -10,6 +12,7 @@
   .rotas-container{
     min-height: 100%;
     flex-grow: 1;
+    background-color: $cor-fundo;
   }
 
   app-painel-direito{

@@ -1,6 +1,7 @@
 import { Routes } from "@angular/router";
-import { HomeComponent } from "src/app/components/player/home/home.component";
 import { PlayerComponent } from "./player.component";
+import { HomeComponent } from "./views/home/home.component";
+import { ListaMusicaComponent } from "./views/lista-musica/lista-musica.component";
 
 export const PlayerRotas: Routes = [
   {
@@ -15,6 +16,10 @@ export const PlayerRotas: Routes = [
       {
         path: 'home',
         component: HomeComponent,
+      },
+      {
+        path: 'lista/:tipo/:id',
+        component: ListaMusicaComponent,
       }
     ]
   },
