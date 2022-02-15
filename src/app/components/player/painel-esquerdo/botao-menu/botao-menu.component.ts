@@ -10,9 +10,6 @@ export class BotaoMenuComponent implements OnInit {
   @Input()
   descricao = '';
 
-  @Input()
-  selecionado = false;
-
   @Output()
   click = new EventEmitter<void>();
   

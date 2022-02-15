@@ -54,5 +54,4 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     this.subs.push(sub);
   }
-
 }

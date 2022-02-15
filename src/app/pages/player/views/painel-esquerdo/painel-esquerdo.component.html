@@ -6,24 +6,24 @@
   <div class="menu-container flex flex-column opcoes">
     <app-botao-menu
       [descricao]="'Home'"
-      [selecionado]="menuSelecionado === 'Home'"
-      (click)="botaoClick('Home')"
+      routerLinkActive="active"
+      routerLink="home"
     >
       <fa-icon [icon]="iconeHome"></fa-icon>  
     </app-botao-menu>
 
     <app-botao-menu
       [descricao]="'Pesquisar'"
-      [selecionado]="menuSelecionado === 'Pesquisar'"
-      (click)="botaoClick('Pesquisar')"
+      routerLink="pesquisar"
+      routerLinkActive="active"
     >
       <fa-icon [icon]="iconePesquisar"></fa-icon>
     </app-botao-menu>
 
     <app-botao-menu
       [descricao]="'Artistas'"
-      [selecionado]="menuSelecionado === 'Artistas'"
-      (click)="botaoClick('Artistas')"
+      routerLink="artistas"
+      routerLinkActive="active"
     >
       <fa-icon [icon]="iconeArtista"></fa-icon>
     </app-botao-menu>
@@ -36,8 +36,8 @@
     <div class="playlist-scroll">
       <app-botao-menu *ngFor="let playlist of playlists"
         [descricao] ="playlist.nome"
-        [selecionado] = "menuSelecionado === playlist.id" 
-        (click)="irParaPlaylist(playlist.id)"
+        [routerLink]="'lista/playlist/' + playlist.id"
+        routerLinkActive="active"
       >
         <fa-icon [icon]="iconePlaylist"></fa-icon>
       </app-botao-menu>

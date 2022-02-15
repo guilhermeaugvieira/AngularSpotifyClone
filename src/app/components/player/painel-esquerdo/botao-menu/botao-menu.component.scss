@@ -3,6 +3,13 @@
 :host{
   display: block;
   width: 100%;
+
+  &.active{
+    button{
+      background-color: $cor-primaria;
+      color: $branco;
+    }
+  }
   
   button{
     width: 100%;
@@ -25,11 +32,6 @@
       margin-left: 15px;
       overflow: hidden;
       text-overflow: ellipsis;
-    }
-
-    &.selecionado{
-      background-color: $cor-primaria;
-      color: $branco;
     }
   }
 }
